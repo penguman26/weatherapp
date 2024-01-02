@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Information</title>
 </head>
 <body>
-    <a href="/">Click here to go back to index</a>
-    <p><%= JSON.stringify(weather, null, 2) %></p>
+  <h1>Weather Information For: <%= locals.city %></h1>
+  
+  <p><strong>Temperature:</strong> <%= w.weather.temp.cur %> &deg;C</p>
+  <p><strong>Feels Like:</strong> <%= w.weather.feelsLike.cur %> &deg;C</p>
+  <p><strong>Pressure:</strong> <%= w.weather.pressure %> hPa</p>
+  <p><strong>Humidity:</strong> <%= w.weather.humidity %>%</p>
+  <p><strong>Clouds:</strong> <%= w.weather.clouds %>%</p>
+  <p><strong>Wind:</strong> <%= w.weather.wind.speed %> m/s, <%= w.weather.wind.deg %> &deg;</p>
+  <p><strong>Visibility:</strong> <%= w.weather.visibility %> meters</p>
+  
+  <p><strong>Condition:</strong> <%= w.weather.main %> - <%= w.weather.description %></p>
+  
+  <img src="<%= w.weather.icon.url %>" alt="<%= w.weather.description %>">
+  
+  <p><strong>Astronomical Data:</strong></p>
+  <p><strong>Sunrise:</strong> <%= w.astronomical.sunrise %></p>
+  <p><strong>Sunset:</strong> <%= w.astronomical.sunset %></p>
+  
+  <a href="/">Go Back</a>
 </body>
 </html>
